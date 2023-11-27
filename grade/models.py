@@ -16,7 +16,7 @@ class Section(models.Model):
 
 class SectionSubject(models.Model):
     section = models.ForeignKey(Section, on_delete=models.CASCADE)
-    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL)
+    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
 
 
