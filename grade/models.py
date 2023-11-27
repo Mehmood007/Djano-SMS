@@ -11,7 +11,7 @@ class Grade(models.Model):
 class Section(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
-    grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, null=True)
 
 
 class SectionSubject(models.Model):
@@ -21,5 +21,5 @@ class SectionSubject(models.Model):
 
 
 class SectionAttendance(models.Model):
-    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, on_delete=models.CASCADE)

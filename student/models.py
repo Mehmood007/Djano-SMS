@@ -1,5 +1,5 @@
 from django.db import models
-from grade import *
+from grade.models import *
 
 
 class Student(models.Model):
@@ -19,8 +19,8 @@ class ResultType(models.Model):
 class Result(models.Model):
     result_type = models.ForeignKey(ResultType, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    total_marks = DecimalField(max_digits=5, decimal_places=2)
-    achieved_marks = DecimalField(max_digits=5, decimal_places=2)
+    total_marks = models.DecimalField(max_digits=5, decimal_places=2)
+    achieved_marks = models.DecimalField(max_digits=5, decimal_places=2)
     
 
 class Attendance(models.Model):
