@@ -1,4 +1,6 @@
 from django.db import models
+from teacher.models import Teacher
+from subject.models import Subject
 
 
 class Grade(models.Model):
@@ -9,3 +11,15 @@ class Grade(models.Model):
 class Section(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
+
+
+class SectionSubject(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+
+
+class SectionAttendance(models.Model):
+    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
