@@ -12,12 +12,13 @@ class Student(models.Model):
     address = models.CharField(max_length=30)
 
 
-class ResultType(models.Model):
-    result_type = models.CharField(max_length=20)
-
-
 class Result(models.Model):
-    result_type = models.ForeignKey(ResultType, on_delete=models.CASCADE)
+    result_types = (
+        (1, "First Term"),
+        (2, "Second Term"),
+        (3, "Final Exam")
+    )
+    result_type = models.IntegerField(choices=result_types, default=3)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     total_marks = models.DecimalField(max_digits=5, decimal_places=2)
     achieved_marks = models.DecimalField(max_digits=5, decimal_places=2)
