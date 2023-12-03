@@ -1,5 +1,5 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
 from django.views import View
 
 
@@ -12,4 +12,4 @@ class StudentView(View):
     # Below function is triggered upon get request
     def get(self, request: HttpRequest, id: int) -> HttpResponse:
         print(type(request))
-        return HttpResponse(f"Hello student with id {id}")
+        return render(request, "index.html")
