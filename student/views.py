@@ -12,4 +12,4 @@ class StudentView(View):
     # Below function is triggered upon get request
     def get(self, request: HttpRequest, id: int) -> HttpResponse:
         print(type(request))
-        return render(request, "index.html")
+        return render(request, "student_dashboard.html")

@@ -59,7 +59,7 @@ ROOT_URLCONF = "sms.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "student\/" / "templates"],
+        "DIRS": [BASE_DIR / "student\/" / "templates", BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
