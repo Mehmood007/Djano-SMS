@@ -19,7 +19,7 @@ class BarChart {
     this.element_id = element_id;
     this.labels = labels;
     this.dataset = dataset;
-    this.categories = categories
+    this.categories = categories;
     this.set_data();
     this.draw();
   }
@@ -41,9 +41,7 @@ class BarChart {
 
   draw() {
     console.log(this);
-    var ctx = document
-      .getElementById(this.element_id)
-      .getContext("2d");
+    var ctx = document.getElementById(this.element_id).getContext("2d");
 
     // Create the grouped bar chart
     new Chart(ctx, {
@@ -51,11 +49,13 @@ class BarChart {
       data: this.barData,
       options: {
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
         },
         plugins: {
           legend: {

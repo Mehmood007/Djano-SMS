@@ -3,13 +3,11 @@ from django.shortcuts import render
 from django.views import View
 
 
-class StudentView(View):
-    """
-    All request regarding student model are handled in this class
-    Function names are based on method names
-    """
+# /student/<student_id>
+def student_dashboard(request: HttpRequest, id: int) -> HttpResponse:
+    return render(request, "student_dashboard.html")
 
-    # Below function is triggered upon get request
-    def get(self, request: HttpRequest, id: int) -> HttpResponse:
-        print(type(request))
-        return render(request, "student_dashboard.html")
+
+# /student/<student_id>/fee_details
+def student_fee_details(request: HttpRequest, id: int) -> HttpResponse:
+    return render(request, "student_fee_details.html")
