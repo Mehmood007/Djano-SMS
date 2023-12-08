@@ -1,0 +1,86 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Student Fee
+Details {% endblock %} {% block custom_css %}
+<link
+  href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block content %}
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Basic Datatable</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="example" class="display" style="min-width: 845px;">
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>Section</th>
+                  <th>Strength</th>
+                  <th>Mark Attendence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6</td>
+                  <td>C</td>
+                  <td>45</td>
+                  <td>
+                    <button class="btn btn-primary mb-1 mr-1">
+                      Add Attendence
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>A</td>
+                  <td>47</td>
+                  <td>
+                    <button class="btn btn-primary mb-1 mr-1">
+                      Add Attendence
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>B</td>
+                  <td>33</td>
+                  <td>
+                    <button class="btn btn-primary mb-1 mr-1">
+                      Add Attendence
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>A</td>
+                  <td>44</td>
+                  <td>
+                    <button class="btn btn-primary mb-1 mr-1">
+                      Add Attendence
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Class</th>
+                  <th>Section</th>
+                  <th>Strength</th>
+                  <th>Mark Attendence</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block additional_dependencies %}
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Teacher
+Dashboard {% endblock %} {% block content %}
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="px-3 pt-3 pb-0">
+          <div class="profile-head">
+            <div class="profile-info">
+              <div class="row d-flex align-items-center">
+                <div class="col-sm-7">
+                  <img
+                    src="{% static 'images/1.jpg' %}"
+                    class="img-fluid rounded-circle"
+                    alt="student profile picture"
+                  />
+                </div>
+                <div class="col-sm-5 profile-details">
+                  <div class="profile-name px-3 pt-2">
+                    <h4 class="mb-0">Mitchell C. Shay</h4>
+                    <p>BS Computer Science</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="px-3 pt-5">
+          <div class="">
+            <p class="fs-14 mb-1">Phone Number</p>
+            <div class="d-flex justify-content-between">
+              <h2 class="num-text mb-5 font-w600">
+                +923123456789
+              </h2>
+            </div>
+            <div class="d-flex">
+              <div class="">
+                <p class="fs-14 mb-1">E-mail</p>
+                <h4 class="mb-5 font-w600">thisstudent12313123@email.com</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card-bx stacked card">
+          <div class="card-info">
+            <p class="mb-1 fs-25 font-w600">
+              <i class="fa fa-location-arrow"></i> Address
+            </p>
+            <div class="d-flex justify-content-between">
+              <h4 class="mb-5 font-w600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat optio ab exercitationem! In quo dolorem mollitia non
+                tempora vel facilis placeat? Enim vel aperiam omnis incidunt
+                corrupti consequatur debitis magni!
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card-bx stacked card">
+          <div class="card-info">
+            <p class="mb-1 fs-25 font-w600">
+              <i class="fa fa-location-arrow"></i> Description
+            </p>
+            <div class="d-flex justify-content-between">
+              <h4 class="mb-5 font-w600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat optio ab exercitationem! In quo dolorem mollitia non
+                tempora vel facilis placeat? Enim vel aperiam omnis incidunt
+                corrupti consequatur debitis magni!
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
