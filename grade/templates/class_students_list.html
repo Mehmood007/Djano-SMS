@@ -1,0 +1,83 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Class Students
+List {% endblock %} {% block custom_css %}
+<link
+  href="{% static 'vendor/datatables/css/jquery.dataTables.min.css' %}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block content %}
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Basic Datatable</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="example" class="display" style="min-width: 845px;">
+              <thead>
+                <tr>
+                  <th>Section</th>
+                  <th>Name</th>
+                  <th>Father</th>
+                  <th>Phone</th>
+                  <th>Father's Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A</td>
+                  <td>Joseph William</td>
+                  <td>David Anothony</td>
+                  <td>+92123456789</td>
+                  <td>+74123456789</td>
+                </tr>
+                <tr>
+                  <td>A</td>
+                  <td>Joseph William</td>
+                  <td>David Anothony</td>
+                  <td>+92123456789</td>
+                  <td>+74123456789</td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td>Joseph William</td>
+                  <td>David Anothony</td>
+                  <td>+92123456789</td>
+                  <td>+74123456789</td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>Joseph William</td>
+                  <td>David Anothony</td>
+                  <td>+92123456789</td>
+                  <td>+74123456789</td>
+                </tr>
+                <tr>
+                  <td>A</td>
+                  <td>Joseph William</td>
+                  <td>David Anothony</td>
+                  <td>+92123456789</td>
+                  <td>+74123456789</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Section</th>
+                  <th>Name</th>
+                  <th>Father</th>
+                  <th>Phone</th>
+                  <th>Father's Phone</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block additional_dependencies %}
+<script src="{% static 'vendor/datatables/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/plugins-init/datatables.init.js' %}"></script>
+{% endblock %}

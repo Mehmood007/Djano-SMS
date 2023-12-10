@@ -1,0 +1,175 @@
+﻿{% extends "layout.html" %} {% load static %} {% block title %} Student
+Dashboard {% endblock %} {% block custom_css %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %} {% block content %}
+<div class="content-body">
+  <!-- <div class="form-head" style="background-image:url('images/background/bg3.jpg');background-position: bottom; ">
+				<div class="container max d-flex align-items-center mt-0">
+					<h2 class="font-w600 title text-white mb-2 mr-auto ">Dashboard</h2>
+					<div class="weather-btn mb-2">
+						<span class="mr-3 font-w600 text-black"><i class="fa fa-cloud mr-2"></i>21</span>
+						<select class="form-control style-1 default-select  mr-3 ">
+							<option>Medan, IDN</option>
+							<option>Jakarta, IDN</option>
+							<option>Surabaya, IDN</option>
+						</select>
+					</div>
+					<a href="javascript:void(0);" class="btn white-transparent mb-2"><i class="las la-calendar scale5 mr-3"></i>Filter Periode</a>
+				</div>
+			</div> -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="px-3 pt-3 pb-0">
+          <div class="profile-head">
+            <div class="profile-info">
+              <div class="row d-flex align-items-center">
+                <div class="col-sm-7">
+                  <img
+                    src="{% static 'images/profile/profile.png' %}"
+                    class="img-fluid rounded-circle"
+                    alt="student profile picture"
+                  />
+                </div>
+                <div class="col-sm-5 profile-details">
+                  <div class="profile-name px-3 pt-2">
+                    <h4 class="mb-0">Mitchell C. Shay</h4>
+                    <p>7th Grade</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="px-3 pt-5">
+          <div class="">
+            <p class="fs-14 mb-1">Phone Number</p>
+            <div class="d-flex justify-content-between">
+              <h2 class="num-text mb-5 font-w600">
+                +923123456789
+              </h2>
+            </div>
+            <div class="d-flex">
+              <div class="">
+                <p class="fs-14 mb-1">E-mail</p>
+                <h4 class="mb-5 font-w600">thisstudent12313123@email.com</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="px-3 pt-5">
+          <div class="">
+            <p class="fs-14 mb-1">Father Name</p>
+            <div class="d-flex justify-content-between">
+              <h2 class="num-text mb-5 font-w600">
+                Jason Statham
+              </h2>
+            </div>
+            <div class="d-flex">
+              <div class="">
+                <p class="fs-14 mb-1">Father Occupation</p>
+                <h4 class="mb-5 font-w600">Head Master</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="px-3 pt-5">
+          <div class="">
+            <p class="fs-14 mb-1">Father Phone Number</p>
+            <div class="d-flex justify-content-between">
+              <h2 class="num-text mb-5 font-w600">
+                +923123456789
+              </h2>
+            </div>
+            <div class="d-flex">
+              <div class="">
+                <p class="fs-14 mb-1">Father E-mail</p>
+                <h4 class="mb-5 font-w600">thisstudent12313123@email.com</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card-bx stacked card">
+          <div class="card-info">
+            <p class="mb-1 fs-25 font-w600">
+              <i class="fa fa-location-arrow"></i> Address
+            </p>
+            <div class="d-flex justify-content-between">
+              <h4 class="mb-5 font-w600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat optio ab exercitationem! In quo dolorem mollitia non
+                tempora vel facilis placeat? Enim vel aperiam omnis incidunt
+                corrupti consequatur debitis magni!
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h6 class="card-title">Attendence</h6>
+          </div>
+          <div class="card-body">
+            <canvas id="attendence_piechart" height="90%"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h6 class="card-title">Fee</h6>
+          </div>
+          <div class="card-body">
+            <canvas id="fee_piechart" height="90%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h6 class="card-title">Results</h6>
+          </div>
+          <div class="card-body">
+            <canvas id="result_barchart" height="75%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block additional_dependencies %}
+<script type="text/javascript" src="{% static 'js/piechart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/barchart.js' %}"></script>
+
+<script type="text/javascript">
+  new PieChart("attendence_piechart", ["Present", "Absent"], [75, 25]);
+  new PieChart("fee_piechart", ["Paid", "Unpaid"], [7500, 3000]);
+  new BarChart(
+    "result_barchart",
+    ["First Term", "Second Term", "Third Term"],
+    ["English", "Urdu", "Maths"],
+    [
+      [76, 89, 78],
+      [86, 78, 81],
+      [65, 78, 89],
+    ]
+  );
+</script>
+{% endblock %}

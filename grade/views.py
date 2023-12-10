@@ -1,15 +1,29 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
 from django.views import View
 
 
-class GradeView(View):
-    """
-    All request regarding student model are handled in this class
-    Function names are based on method names
-    """
+# /grade/<class_id>
+def class_students(request: HttpRequest, id: int) -> HttpResponse:
+    return render(request, "class_students_list.html")
 
-    # Below function is triggered upon get request
-    def get(self, request: HttpRequest, id: int) -> HttpResponse:
-        print(type(request))
-        return HttpResponse(f"Hello Grade with id {id}")
+
+# /grade/<class_id>/<section_id>
+def section_students(request: HttpRequest, id: int, section_id: int) -> HttpResponse:
+    return render(request, "section_students_list.html")
+
+
+# /grade/<class_id>/<section_id>/attendance
+def section_attendance_form(
+    request: HttpRequest, id: int, section_id: int
+) -> HttpResponse:
+    arr = [1, 2, 3, 4, 5]
+    context = {"arr": arr}
+    return render(request, "students_attendance_form.html", context)
+
+
+# /grade/<class_id>/<section_id>/result
+def section_result_form(request: HttpRequest, id: int, section_id: int) -> HttpResponse:
+    arr = [1, 2, 3, 4, 5]
+    context = {"arr": arr}
+    return render(request, "students_result_form.html", context)

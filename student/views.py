@@ -1,15 +1,13 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
 from django.views import View
 
 
-class StudentView(View):
-    """
-    All request regarding student model are handled in this class
-    Function names are based on method names
-    """
+# /student/<student_id>
+def student_dashboard(request: HttpRequest, id: int) -> HttpResponse:
+    return render(request, "student_dashboard.html")
 
-    # Below function is triggered upon get request
-    def get(self, request: HttpRequest, id: int) -> HttpResponse:
-        print(type(request))
-        return HttpResponse(f"Hello student with id {id}")
+
+# /student/<student_id>/fee_details
+def student_fee_details(request: HttpRequest, id: int) -> HttpResponse:
+    return render(request, "student_fee_details.html")
