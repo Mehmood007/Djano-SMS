@@ -1179,13 +1179,13 @@
 		src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'vendor/chart.js/Chart.bundle.min.js' %}"></script>
 
-	<script type="text/javascript" src="{% static 'vendor/owl-carousel/owl.carousel.js' %}"></script>
+	{% block additional_dependencies %} {% endblock %}
 	<script type="text/javascript" src="{% static 'js/custom.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/deznav-init.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/demo.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/styleSwitcher.js' %}"></script>
 
-	{% block additional_dependencies %} {% endblock %}
+	
 
 </body>
 

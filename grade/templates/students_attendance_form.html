@@ -1,0 +1,84 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Section
+Attendance {% endblock %} {% block content %}
+<div class="content-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h3 class="text-center">Class Attendance</h3>
+            <div class="text-right">
+              <button
+                type="button"
+                class="btn btn-success"
+                onclick="markAll('present')"
+              >
+                Present All
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="markAll('absent')"
+              >
+                Absent All
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="date">Date:</label>
+              <input type="date" class="form-control" name="date" />
+            </div>
+          </div>
+          <div class="card-body">
+            <form>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Student Name</th>
+                    <th>Attendance Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Repeat the following row for each student -->
+                  {% for number in arr %}
+                  <tr>
+                    <td>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="studentName[]"
+                        placeholder="Enter student name"
+                      />
+                    </td>
+                    <td>
+                      <select class="form-control" name="status[]">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                      </select>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  <!-- End of student row -->
+                </tbody>
+              </table>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">
+                  Submit Attendance
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block additional_dependencies %}
+<script>
+  function markAll(status) {
+    // Function to mark all students as 'present' or 'absent'
+    document.querySelectorAll('[name="status[]"]').forEach((select) => {
+      select.value = status;
+    });
+  }
+</script>
+{% endblock %}

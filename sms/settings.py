@@ -63,6 +63,7 @@ TEMPLATES = [
             BASE_DIR / "templates",
             BASE_DIR / "student\/" / "templates",
             BASE_DIR / "teacher\/" / "templates",
+            BASE_DIR / "grade\/" / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {

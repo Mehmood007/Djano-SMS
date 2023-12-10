@@ -1,0 +1,81 @@
+{% extends "layout.html" %} {% load static %} {% block title %} Section
+Attendance {% endblock %} {% block content %}
+<div class="content-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h3 class="text-center">Class Result</h3>
+            <div class="text-right">
+                <select class="form-control" name="status[]">
+                    <option value="First Term">First Term</option>
+                    <option value="Second Term">Second Term</option>
+                    <option value="Final Term">Final Term</option>
+                </select>
+            </div>
+          </div>
+          <div class="card-body">
+            <form>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Marks</th>
+                    <th>Teacher Remarks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Repeat the following row for each student -->
+                  {% for number in arr %}
+                  <tr>
+                    <td>
+                      {{number}}
+                    </td>
+                    <td>
+                        Joseph Root
+                      </td>
+                    <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="marks[]"
+                          placeholder="Enter Marks"
+                        />
+                      </td>
+                    <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="remarks[]"
+                          placeholder="Teacher Remarks"
+                        />
+                      </td>
+                  </tr>
+                  {% endfor %}
+                  <!-- End of student row -->
+                </tbody>
+              </table>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">
+                  Submit Attendance
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block additional_dependencies %}
+<script>
+  function markAll(status) {
+    // Function to mark all students as 'present' or 'absent'
+    document.querySelectorAll('[name="status[]"]').forEach((select) => {
+      select.value = status;
+    });
+  }
+</script>
+{% endblock %}
