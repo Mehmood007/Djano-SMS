@@ -1,17 +1,24 @@
 from django.db import models
-from teacher.models import Teacher
+
 from subject.models import Subject
+from teacher.models import Teacher
 
 
 class Grade(models.Model):
     name = models.CharField(max_length=30, primary_key=True)
     description = models.CharField(max_length=30)
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Section(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class SectionSubject(models.Model):
